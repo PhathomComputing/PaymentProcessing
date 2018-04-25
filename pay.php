@@ -113,8 +113,7 @@ setcookie( CART_COOKIE, '', 1, "/", $domain, false );
 // send email
 $para = $json_response['payer']['payer_info']['email']; // atención a la coma
 
-// título
-$título = 'wereReallyGood.com Payment';
+$título = 'email@email.com Payment';
 
 $items     = $json_response['transactions'][0]['item_list'];
 $list_item = '<table width="100%" cellpadding="5" cellspacing="5" style="margin-bottom:20px;">';
@@ -136,7 +135,7 @@ $list_item .= '</table>';
 
 $mensaje = '<html>
 <head>
-  <title>wereReallyGood.com Payment</title>
+  <title>Payment</title>
 </head>
 <body>
   <p>' . $payerFirstName . ' ' . $payerLastName . ', Thank you for your Order!' . '</p>
