@@ -111,7 +111,6 @@ setcookie( CART_COOKIE, '', 1, "/", $domain, false );
 <?php
 
 // send email
-// Varios destinatarios
 $para = $json_response['payer']['payer_info']['email']; // atención a la coma
 
 // título
@@ -135,7 +134,6 @@ foreach ( $items['items'] as $item ) {
 }
 $list_item .= '</table>';
 
-// mensaje
 $mensaje = '<html>
 <head>
   <title>wereReallyGood.com Payment</title>
@@ -165,16 +163,12 @@ $mensaje = '<html>
 </body>
 </html>';
 
-// Para enviar un correo HTML, debe establecerse la cabecera Content-type
 $cabeceras = 'MIME-Version: 1.0' . "\r\n";
 $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-// Cabeceras adicionales
 $cabeceras .= 'To: <' . $json_response['payer']['payer_info']['email'] . "\r\n";
-//$cabeceras .= 'To: javo@troya.co'. "\r\n";
-$cabeceras .= 'From: Paid <Ceo@werereallygood.com>' . "\r\n";
-$cabeceras .= 'Cc: Ceo@werereallygood.com' . "\r\n";
-// Enviarlo
+$cabeceras .= 'From: Paid <email@email.com>' . "\r\n";
+$cabeceras .= 'Cc: email@email.com' . "\r\n";
 mail( $para, $título, $mensaje, $cabeceras );
 
 if ( session_id() !== "" ) {
